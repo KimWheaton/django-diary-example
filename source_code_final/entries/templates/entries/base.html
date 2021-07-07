@@ -6,9 +6,17 @@
     <meta charset="UTF-8">
     <title>My Diary</title>
     <link rel="stylesheet" href="{% static 'css/diary.css' %}">
+	<script src="{% static 'js/main.js' %}" defer></script>
 </head>
 
 <body>
+	<button id="ajax-button">AJAX</button>
+	<div id="ajax-data"></div>
+	<div id="weather"></div>
+
+	<button id="affirmation">Daily Affirmation</button>
+	<div id="affirmation-data"></div>
+
     <h1><a href="/">Dear diary …</a></h1>
 
     {% if messages %}

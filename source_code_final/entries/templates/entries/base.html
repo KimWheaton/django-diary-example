@@ -4,35 +4,44 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>My Diary</title>
+    <title>Mood Journal</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Merienda:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/diary.css' %}">
 	<script src="{% static 'js/main.js' %}" defer></script>
 </head>
 
 <body>
-	<button id="ajax-button">AJAX</button>
-	<div id="ajax-data"></div>
-	<div id="weather"></div>
+	<div id="container">
+		<button id="affirmation">Daily Inspiration</button>
+		<div id="affirmation-data"></div>
+		<button id="ajax-button">AJAX</button>
+		<div id="ajax-data"></div>
+		<div id="weather"></div>
+<form id="zip-form">
+	<label for="zip">Enter your zip code</label>
+	<input type="text" name="zip", id="zip" required>	
+	<input type="submit" value="Get Weather">	
+</form>
+	<h1><a href="/">What happened today?</a></h1>
+	</div>	
 
-	<button id="affirmation">Daily Affirmation</button>
-	<div id="affirmation-data"></div>
-
-    <h1><a href="/">Dear diary …</a></h1>
-
-    {% if messages %}
-	    <ul class="messages">
-	    {% for message in messages %}
-	        <li class="message">
-	            {{ message }}
-	        </li>
-	    {% endfor %}
-	    </ul>
-	{% endif %}
-
-    {% block content %}{% endblock %}
-
-    <hr>
-	<a href="{% url 'admin:logout' %}">Logout</a>
+		{% if messages %}
+		<ul class="messages">
+			{% for message in messages %}
+			<li class="message">
+				{{ message }}
+			</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+		
+		{% block content %}{% endblock %}
+		
+		<hr>
+		<a href="{% url 'admin:logout' %}">Logout</a>
+	
 </body>
 
 </html>

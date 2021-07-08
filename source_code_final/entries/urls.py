@@ -19,4 +19,5 @@ urlpatterns = [
         name="entry-delete",
     ),
     path("ajax", views.view_returns_json, name="ajax"),
+    path("ajax/create", views.ajax_create_entry, name="ajax-create"),
 ]
